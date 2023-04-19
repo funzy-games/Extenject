@@ -113,6 +113,11 @@ namespace Zenject
                 Initialize();
             }
         }
+        
+        private void OnDestroy()
+        {
+            _container.UnbindAll();
+        }
 
         public void Validate()
         {
