@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using ModestTree;
 using UnityEditor;
+using UnityEditor.Compilation;
 using UnityEngine;
 
 namespace Zenject.ReflectionBaking
@@ -61,16 +62,7 @@ namespace Zenject.ReflectionBaking
 
         public static void TryForceUnityFullCompile()
         {
-            Type compInterface = typeof(UnityEditor.Editor).Assembly.GetType(
-                "UnityEditor.Scripting.ScriptCompilation.EditorCompilationInterface");
-
-            if (compInterface != null)
-            {
-                var dirtyAllScriptsMethod = compInterface.GetMethod(
-                    "DirtyAllScripts", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-
-                dirtyAllScriptsMethod.Invoke(null, null);
-            }
+            CompilationPipeline.RequestScriptCompilation(RequestScriptCompilationOptions.CleanBuildCache);
 
             UnityEditor.AssetDatabase.Refresh();
         }
