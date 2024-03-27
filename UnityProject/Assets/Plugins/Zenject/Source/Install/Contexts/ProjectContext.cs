@@ -279,6 +279,7 @@ namespace Zenject
             _container.Bind<ZenjectSceneLoader>().AsSingle();
 
             ZenjectManagersInstaller.Install(_container);
+            AsyncInitializablesInstaller.Install(_container);
 
             _container.Bind<Context>().FromInstance(this);
 
