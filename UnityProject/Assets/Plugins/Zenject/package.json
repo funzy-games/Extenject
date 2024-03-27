@@ -4,5 +4,7 @@
 	"displayName": "Extenject",
 	"version": "0.0.1",
 	"description": "Dependency Injection Framework for Unity3D",
-	"dependencies": {}
+	"dependencies": {
+		"com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.3"
+	}
 }
