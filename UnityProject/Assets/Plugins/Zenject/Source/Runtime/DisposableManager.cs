@@ -95,7 +95,7 @@ namespace Zenject
                 }
                 catch (Exception e)
                 {
-                    Debug.LogError($"Error occurred while disposing ILateDisposable with type '{disposable.LateDisposable.GetType()}'");
+                    Debug.LogError($"Error occurred while disposing {typeof(ILateDisposable)}, type=\"{disposable.LateDisposable.GetType()}\" error=\"{e.Message}\"");
                 }
             }
         }
@@ -121,9 +121,9 @@ namespace Zenject
                 {
                     disposable.Disposable.Dispose();
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    Debug.LogError($"Error occurred while disposing IDisposable with type '{disposable.Disposable.GetType()}'");
+                    Debug.LogError($"Error occurred while disposing {typeof(IDisposable)}, type=\"{disposable.Disposable.GetType()}\" error=\"{e.Message}\"");
                 }
             }
         }
