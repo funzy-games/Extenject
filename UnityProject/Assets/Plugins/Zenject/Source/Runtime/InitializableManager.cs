@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ModestTree;
 using ModestTree.Util;
+using UnityEngine;
 
 namespace Zenject
 {
@@ -78,8 +79,7 @@ namespace Zenject
                 }
                 catch (Exception e)
                 {
-                    throw Assert.CreateException(
-                        e, "Error occurred while initializing IInitializable with type '{0}'", initializable.Initializable.GetType());
+                    Debug.LogError($"Error occurred while initializing {typeof(IInitializable)}, type=\"{initializable.Initializable.GetType()}\" error=\"{e.Message}\"");
                 }
             }
         }

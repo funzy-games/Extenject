@@ -86,7 +86,7 @@ namespace Zenject
                 }
                 catch (Exception e)
                 {
-                    throw Assert.CreateException(e, $"Error occurred while initializing {typeof(IAsyncInitializable)}, types=\"{types}\"");
+                    throw Assert.CreateException(e, $"Error occurred while initializing {typeof(IAsyncInitializable)}, types=\"{types}\" error=\"{e.Message}\"");
                 }
             }
         }
